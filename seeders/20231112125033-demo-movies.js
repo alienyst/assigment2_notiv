@@ -4,7 +4,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Movies', [{
-      title: 'Example Movie',
+      title: 'Marvel Cinematic Universe',
       synopsis: 'This is an example synopsis',
       trailerUrl: 'http://example.com/trailer',
       imgUrl: 'http://example.com/image.jpg',
