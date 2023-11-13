@@ -27,9 +27,10 @@ router.post('/login', async (req, res) => {
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      res.json({ token });
+      console.log(token)
+      res.json({ token, "name" :user.name, "role":user.role, "id":user.id});
     } else {
-      res.status(401).send('Email atau Password salah');
+      res.status(401).send({error:"Unathorized",message:"Invalid username/password"});
     }
   } catch (error) {
     res.status(500).send(error.message);
